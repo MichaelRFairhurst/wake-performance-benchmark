@@ -1,0 +1,12 @@
+module perf;
+
+import io.Printer;
+import perf.Md5Performance;
+
+every Main is:
+
+	needs Md5Performance;
+
+	main() {
+		Md5Performance.run();
+	}
