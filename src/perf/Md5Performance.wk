@@ -6,8 +6,8 @@ every Md5Performance is:
 
 	needs Printer;
 
-	run() {
-		for(var i = 1; i < 100000; i += 1) {
+	run(Num iterations) {
+		for(var i = 1; i < iterations; i += 1) {
 			var Num[] = hash((i << (i % 16) * 24200022).toText());
 			//Printer.printLine(Num[0].toText() + ' ' + Num[1].toText() + ' ' + Num[2].toText() + ' ' + Num[3].toText());
 		}

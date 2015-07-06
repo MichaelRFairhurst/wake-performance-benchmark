@@ -1,12 +1,23 @@
 module perf;
 
 import io.Printer;
+import std.Argv;
 import perf.Md5Performance;
 
 every Main is:
 
-	needs Md5Performance;
+	needs Md5Performance, Argv, Printer;
 
 	main() {
-		Md5Performance.run();
+		var Text = Argv.getArgv()[2];
+		var Num? = Argv.getArgv()[3].parseNum();
+		if Text == 'y's {
+			if Num exists {
+				Md5Performance.run(Num);
+			} else {
+				Printer.printLine("Invalid iteration count argument.");
+			}
+		} else {
+			Printer.printLine("Not running");
+		}
 	}
